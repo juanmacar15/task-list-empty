@@ -15,9 +15,9 @@ function TaskItem({task}) {
   
   return (
     <>
-      <div className='task-info'>
+      <div className='task-item'>
+        <span>{task.name}</span>
         <small>Creado:{task.create}</small>
-        <small>{task.name}</small>
         <small>Completado: {task.complete}</small>
         <small>Fecha Limite: {task.limitDate}</small>
         <small>Categoría: {task.category}</small>

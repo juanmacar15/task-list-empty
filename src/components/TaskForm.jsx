@@ -1,17 +1,27 @@
 import './TaskForm.css'
 import { useState } from 'react';
 import { FiPlus } from 'react-icons/fi';
-function TaskForm() {
+function TaskForm({addTask}) {
   const [newTask, setNewTask]= useState('')
   const [category, setCategory]= useState('')
   const [date, setDate]= useState('')
 
-  const handleSubmit = ()=>{
+  const handleSubmit = (e) =>{
+    e.preventDefault()
+    console.log(e)
 
+    addTask({
+      create: new Date().toISOString, 
+      name: newTask,  
+      limitDate: date, 
+      category: category,
+      complete:'No',},
+
+    )
   }
 
   return (
-    <form className='task-form' onSubmit={handleSubmit}>
+    <form className='task-form' onSubmit={(e) => handleSubmit(e)}>
     <input 
     type="text"
     placeholder='Agregar tarea'
@@ -23,6 +33,7 @@ function TaskForm() {
       <option value="Trabajo">Trabajo</option>
       <option value="Personal">Personal</option>
       <option value="Hogar">Hogar</option>
+      <option value="Deporte">Deporte</option>
      </select>
      <input 
      type="date"

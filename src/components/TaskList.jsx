@@ -1,7 +1,7 @@
 import TaskItem from './TaskItem';
 import './TaskList.css'
-function TaskList({tasks}) {
 
+function TaskList({tasks}) {
   return (
     <ul className='task-list'>
       {tasks.map((task,index)=>(
@@ -10,7 +10,6 @@ function TaskList({tasks}) {
         task={task}
         />
       ))
-
       }
     </ul>
   );
