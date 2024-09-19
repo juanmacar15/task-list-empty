@@ -1,11 +1,9 @@
 import './TaskItem.css'
 import { FiCheck, FiTrash2, FiEdit } from 'react-icons/fi';
 
-function TaskItem({task}) {
+function TaskItem({task, index, toggleTaskComplete}) {
 
-  const toggleTaskComplete= ()=>{
 
-  }
   const handleEdit= ()=>{
 
   }
@@ -23,7 +21,7 @@ function TaskItem({task}) {
         <small>Categoría: {task.category}</small>
       </div>
       <div className='icons'>
-        <button className='check-btn' onClick={()=>toggleTaskComplete()}>
+        <button className='check-btn' onClick={()=>toggleTaskComplete(index)}>
           <FiCheck size={18}/>
         </button>
         <button className='edit-btn' onClick={()=>handleEdit()}>

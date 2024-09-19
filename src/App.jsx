@@ -12,7 +12,21 @@ function App() {
 
   const addTask = (task) => {
     setNewTask([...tasks, task])
-  } 
+  }
+  const toggleTaskComplete = (index) => {
+    const newTask = tasks.map((task, ix) => {
+      if(ix === index){
+        return {...task, completed: !task.completed, completedAt: task.completed ? null : new Date()}
+      }
+      return task
+    })
+
+    setNewTask(newTask)
+  }
+
+  const removeTask = () => {
+    
+  }
 
   return (
     <div className='app-container'>
@@ -20,7 +34,9 @@ function App() {
       <TaskSearch />
       <TaskFilters/>
       <TaskForm addTask={addTask} />
-      <TaskList tasks={tasks}/>
+      <TaskList 
+        tasks={tasks}
+        toggleTaskComplete={toggleTaskComplete}/>
       <TaskFilters/>
     </div>
   );

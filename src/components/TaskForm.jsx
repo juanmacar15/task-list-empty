@@ -8,10 +8,9 @@ function TaskForm({addTask}) {
 
   const handleSubmit = (e) =>{
     e.preventDefault()
-    console.log(e)
 
     addTask({
-      create: new Date().toISOString, 
+      create: new Date().toISOString(), 
       name: newTask,  
       limitDate: date, 
       category: category,
